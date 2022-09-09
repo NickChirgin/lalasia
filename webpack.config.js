@@ -86,30 +86,23 @@ module.exports = (env, argv) => {
     if (argv.mode === "development") {
         config.devtool = "eval-source-map";
         config.target = "web";
-        config.module.rules = [...config.module.rules,  {
-            test: /\.module\.s?css$/,
-            use: getSettingsForStyles(true, argv.mode),
-        },
-        {
-            test: /\.s?css$/,
-            exclude: /\.module\.s?css$/,
-            use: getSettingsForStyles(false, argv.mode),
-        },]
     }
 
     if (argv.mode === "production") {
         config.devtool = "hidden-source-map";
         config.target = "browserslist";
         config.plugins = [...config.plugins, new ReactRefreshWebpackPlugin()];
-        config.module.rules = [...config.module.rules,  {
-            test: /\.module\.s?css$/,
-            use: getSettingsForStyles(true, argv.mode),
-        },
-        {
-            test: /\.s?css$/,
-            exclude: /\.module\.s?css$/,
-            use: getSettingsForStyles(false, argv.mode),
-        },]
     }
+
+    config.module.rules = [...config.module.rules,  {
+        test: /\.module\.s?css$/,
+        use: getSettingsForStyles(true, argv.mode),
+    },
+    {
+        test: /\.s?css$/,
+        exclude: /\.module\.s?css$/,
+        use: getSettingsForStyles(false, argv.mode),
+    },]
+
     return config;
 };
