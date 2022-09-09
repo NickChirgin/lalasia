@@ -1,0 +1,32 @@
+@mixin typo-parapgraph-normal {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 1.8rem;
+}
+
+@mixin typo-parapgraph-bold {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1.3rem;
+}
+
+@mixin typo-title-small {
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 1.3rem;
+    letter-spacing: 0.01em;
+}
+
+@mixin typo-title-medium {
+    font-weight: 700;
+    font-size: 44px;
+    line-height: 130%;
+    letter-spacing: 0.01em;
+}
+
+@mixin typo-title-big {
+    font-weight: 700;
+    font-size: 64px;
+    line-height: 1.3rem;
+    letter-spacing: 0.01em;
+}

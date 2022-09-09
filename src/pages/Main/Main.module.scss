@@ -1,0 +1,27 @@
+@import '@styles/colors.scss';
+@import '@styles/typography.scss';
+.pagination {
+    width: 296px;
+    height: 42px;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    &__image {
+        width: 10px;
+        height: 21px;
+    }
+    &__wrapper {
+        display: flex;
+        width: 190px;
+        justify-content: space-evenly;
+        &_page {
+            width: 26px;
+            height: 26px;
+            text-align: center;
+            @include typo-parapgraph-normal;
+        }
+        &_current {
+            background-color: $bg-color-primary;
+        }
+    }
+}

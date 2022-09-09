@@ -1,0 +1,30 @@
+@import '@styles/colors.scss';
+.loader {
+  transform: rotate(35deg);
+  box-sizing: border-box;
+  position: relative;
+  border-radius: 50%;
+  border-bottom: solid transparent;
+}
+
+.loader_size-m {
+  padding-top: calc(100% - 40px /2);
+  width: 40px;
+  height: 40px;
+  border: 4.5px solid $bg-color-white;
+  border-right: 4.5px solid transparent;
+}
+
+.loader_size-l {
+  width: 60px;
+  height: 60px;
+  border: 6px solid $bg-color-white;
+  border-right: 6px solid transparent;
+}
+
+.loader_size-s {
+  width: 20px;
+  height: 20px;
+  border: 3px solid $bg-color-white;
+  border-right: 3px solid transparent;
+}

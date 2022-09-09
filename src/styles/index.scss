@@ -1,0 +1,29 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    padding: 0;
+    width: 75vw;
+    margin: auto;
+    font-family: eudoxus sans, sans-serif;
+    text-decoration: none;
+}
+
+
+@media (max-width: 1200px) {
+    body {
+        width: 90vw;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 800px) {
+    body {
+        width: 100vw;
+        margin: auto;
+        padding: 0;
+    }
+}
