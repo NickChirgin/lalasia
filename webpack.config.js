@@ -33,7 +33,8 @@ let config = {
     devtool: 'eval-source-map',
     output: {
         path: buildPath,
-        filename: 'bundle.js'
+        filename: 'bundle.js',
+        publicPath: "/",
     },
     plugins: [
         new HtmlWebpackPlugin({
@@ -78,6 +79,8 @@ let config = {
         host: '127.0.0.1',
         port: 9000,
         hot: true,
+        open: true,
+        historyApiFallback: true,
         // inline: true,
     }
 }

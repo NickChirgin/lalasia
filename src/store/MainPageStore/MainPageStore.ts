@@ -1,23 +1,24 @@
-import { api } from '@config/api';
-import { API_ENDPOINTS, itemsPerPage } from '@config/endpoint';
-import { CardsModel } from '@store/models/product/cards';
-import rootStore from '@store/RootStore';
-import range from '@utils/range';
-import { ILocalStore } from '@utils/useLocalStore';
+import { api } from "@config/api";
+import { ILocalStore } from "@utils/useLocalStore";
+import { API_ENDPOINTS, itemsPerPage } from "@config/endpoint";
+import { CardsModel } from "@store/models/product/cards";
+import rootStore from "@store/RootStore";
+import range from "@utils/range";
+
 import {
   action,
   computed,
   makeObservable,
   observable,
   runInAction,
-} from 'mobx';
+} from "mobx";
 
 type PrivateFields =
-  | '_categories'
-  | '_isLoading'
-  | '_products'
-  | '_pagesAmount'
-  | '_choosenCategories';
+  | "_categories"
+  | "_isLoading"
+  | "_products"
+  | "_pagesAmount"
+  | "_choosenCategories";
 
 export default class MainPageStore implements ILocalStore {
   private _products: CardsModel[] = [];
@@ -95,7 +96,7 @@ export default class MainPageStore implements ILocalStore {
   }
 
   get filteredProducts() {
-    const filter = rootStore.query.getParam('search') as string;
+    const filter = rootStore.query.getParam("search") as string;
     if (filter) {
       return this._products.filter((product) =>
         product.title.toLowerCase().includes(filter.toLowerCase())
@@ -105,11 +106,11 @@ export default class MainPageStore implements ILocalStore {
   }
 
   get paginatedProducts() {
-    let page = rootStore.query.getParam('?page')
-      ? rootStore.query.getParam('?page')
-      : rootStore.query.getParam('page');
+    let page = rootStore.query.getParam("?page")
+      ? rootStore.query.getParam("?page")
+      : rootStore.query.getParam("page");
     if (!page) {
-      page = '1';
+      page = "1";
     }
     runInAction(() => {
       this._pagesAmount = range(1, this.filteredProducts.length, itemsPerPage);

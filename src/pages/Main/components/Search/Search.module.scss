@@ -79,35 +79,27 @@
         background-position: left 16px top 13px;
         height: 68%;
         padding-left: 50px;
-        font-size: 14px;
         margin-left: 0;
     }
 
     .search__product_button {
         position: absolute;
-        font-size: 14px;
         right: 8px;
         top: 8px;
         width: 100px;
         height: 38px;
     }
     .products {
-        &__title{
-            font-size: 18px;
-        }
         &__paragraph{
-            font-size: 12px;
             margin-top: 5px;
         }
     }
 
     .page__subtitle {
-        font-size: 14px;
         margin: 0 auto 32px;
     }
 
     .page__title {
-        font-size: 26px;
         padding-top: 50px;
     }
 

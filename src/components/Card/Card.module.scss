@@ -56,17 +56,10 @@
     .card {
         box-sizing: border-box;
         width: 280px;
-        font-size: 12px;
         &__image {
             box-sizing: border-box;
             width: 280px;
             height: 254.5px;
-        }
-        &__paragraph:last-child {
-            font-size: 14px;
-        }
-        &__title {
-            font-size: 14px;
         }
     }
 }

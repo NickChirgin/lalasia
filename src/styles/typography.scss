@@ -2,12 +2,20 @@
     font-weight: 500;
     font-size: 18px;
     line-height: 1.8rem;
+
+    @media (max-width: 1000px) {
+        font-size: 12px;
+    }
 }
 
 @mixin typo-parapgraph-bold {
     font-weight: 700;
     font-size: 18px;
     line-height: 1.3rem;
+
+    @media (max-width: 1000px) {
+        font-size: 12px;
+    }
 }
 
 @mixin typo-title-small {
@@ -15,6 +23,10 @@
     font-size: 26px;
     line-height: 1.3rem;
     letter-spacing: 0.01em;
+
+    @media (max-width: 1000px) {
+        font-size: 14px;
+    }
 }
 
 @mixin typo-title-medium {
@@ -22,6 +34,10 @@
     font-size: 44px;
     line-height: 130%;
     letter-spacing: 0.01em;
+
+    @media (max-width: 1000px) {
+        font-size: 18px;
+    }
 }
 
 @mixin typo-title-big {
@@ -29,4 +45,8 @@
     font-size: 64px;
     line-height: 1.3rem;
     letter-spacing: 0.01em;
+
+    @media (max-width: 1000px) {
+        font-size: 26px;
+    }
 }
