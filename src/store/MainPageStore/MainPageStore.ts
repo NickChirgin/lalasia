@@ -77,6 +77,7 @@ export default class MainPageStore implements ILocalStore {
   async setProducts(): Promise<void> {
     this._products = [];
     this._isLoading = true;
+
     if (this.choosenCategories) {
       this.choosenCategories.map(async (cat) => {
         const products = await api.get(`${API_ENDPOINTS.CATEGORY}${cat}`);

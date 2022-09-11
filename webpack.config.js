@@ -82,6 +82,11 @@ let config = {
         open: true,
         historyApiFallback: true,
         // inline: true,
+    },
+    performance: {
+        hints: false,
+        maxEntrypointSize: 512000,
+        maxAssetSize: 512000
     }
 }
 
