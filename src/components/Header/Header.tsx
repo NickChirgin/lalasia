@@ -15,9 +15,9 @@ const Header: React.FC = () => {
       <header>
         <div className={headerStyles.header__logo}>
           <div className={headerStyles.header__logo_image}>
-            <img src={V1} alt="v1" />
-            <img src={V2} alt="v2" />
-            <img src={V3} alt="v3" />
+            <img className={headerStyles['header__logo_image-one']} src={V1} alt="v1" />
+            <img className={headerStyles['header__logo_image-two']} src={V2} alt="v2" />
+            <img className={headerStyles['header__logo_image-three']} src={V3} alt="v3" />
           </div>
           <Link to={`/`} className={headerStyles.header__logo_link}>
             <h2 className={headerStyles.header__logo_company}>Lalasia</h2>
@@ -35,8 +35,8 @@ const Header: React.FC = () => {
           <p>About us</p>
         </nav>
         <div className={headerStyles.header__settings}>
-          <img src={bag} alt="bag" />
-          <img src={user} alt="user" />
+          <img className={headerStyles['header__settings-image']} src={bag} alt="bag" />
+          <img className={headerStyles['header__settings-image']} src={user} alt="user" />
         </div>
       </header>
     </div>

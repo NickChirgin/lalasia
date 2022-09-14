@@ -1,101 +1,97 @@
-@import '@styles/colors.scss';
-@import '@styles/typography.scss';
-.product_page{
-    background-color: $bg-color-white;
-    box-sizing: border-box;
-}
+@import '@styles/mixins.scss';
 .product {
     display: flex;
     margin: 100px 100px 50px;
     background-color: $bg-color-white;
-    & img {
+    &-image {
         width: 600px;
         height: 600px;
         margin-right: 50px;
     }
-}
-.product__related_title{
-    background-color: $bg-color-white;
-    margin-left: 100px;
-    font-style: normal;
-    @include typo-title-medium;
-    font-size: 32px;
-    color: $font-color-black;
-}
-.product__related_items {
-    margin-left: 50px;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    background-color: $bg-color-white;
-}
-
-.product__info_title {
-    font-style: normal;
-    @include typo-title-medium;
-    color: $font-color-black;
-    margin-bottom: 0;
-}
-
-.product__info_subtitle{
-    font-style: normal;
-    @include typo-parapgraph-normal;
-    color: $font-color-grey;
-    margin-top: 0;
-    margin-bottom: 30px;
-}
-
-.product__info_color {
-    font-style: normal;
-    @include typo-parapgraph-bold;
-    color: $font-color-black;
-    margin-bottom: 20px;
-}
-
-.product__info_description {
-    color: $font-color-grey;
-    margin-bottom: 30px;
-}
-
-.product__info_colors{
-    display: flex;
-    margin-bottom: 20px;
-    & div {
-        display: inline-block;
-        width: 50px;
-        aspect-ratio: 1/1;
+    &_page {
+        background-color: $bg-color-white;
+        box-sizing: border-box;
     }
-    & div:first-child{
-        background: $font-color-black;
+    &__related {
+        &_title {
+            background-color: $bg-color-white;
+            margin-left: 100px;
+            font-style: normal;
+            @include typo-title-medium;
+            font-size: 32px;
+            color: $font-color-black;
+        }
+        &_items {
+            margin-left: 50px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            background-color: $bg-color-white;
+        }
     }
-
-    & div:nth-of-type(2) {
-        background: #314443;
-    }
-    & div:nth-of-type(3) {
-        background: #C5A26E;
-    }
-    & div:last-child {
-        background: #D8DBE0;
+    &__info {
+        &_title {
+            font-style: normal;
+            @include typo-title-medium;
+            color: $font-color-black;
+            margin-bottom: 0;
+        }
+        &_subtitle {
+            font-style: normal;
+            @include typo-parapgraph-normal;
+            color: $font-color-grey;
+            margin-top: 0;
+            margin-bottom: 30px;
+        }
+        &_color {
+            font-style: normal;
+            @include typo-parapgraph-bold;
+            color: $font-color-black;
+            margin-bottom: 20px;
+        }
+        &_description {
+            color: $font-color-grey;
+            margin-bottom: 30px;
+        }
+        &_colors {
+            display: flex;
+            margin-bottom: 20px;
+            &-div {
+                display: inline-block;
+                width: 50px;
+                aspect-ratio: 1/1;
+            }
+        }
+        &_price {
+            font-style: normal;
+            @include typo-title-medium;
+            color: $font-color-black;
+            margin-bottom: 50px;
+        }
+        &_buttons {
+            display: flex;
+            & button {
+                width: 285px;
+                height: 58px;
+            }
+            &-first {
+                margin-right: 20px;
+            }
+        }
     }
 }
-
-.product__info_price {
-    font-style: normal;
-    @include typo-title-medium;
-    color: $font-color-black;
-    margin-bottom: 50px;
+.black {
+    background: $font-color-black;
 }
 
-.product__info_buttons{
-    display: flex;
-    & button {
-        width: 285px;
-        height: 58px;
-    }
-    & button:first-child {
-        margin-right: 20px;
-    }
+.green {
+    background: #314443;
+}
+.orange {
+    background: #C5A26E;
+}
+.grey {
+    background: #D8DBE0;
 }
 
 @media (max-width: 1600px) {
@@ -103,18 +99,16 @@
         display: flex;
         margin: 50px 24px 30px;
         background-color: $bg-color-white;
-        
         box-sizing: border-box;
-        & img {
+        &-image {
             width: 500px;
             height: 500px;
             margin-right: 50px;
         }
-    }
-
-    .product__related_items {
-        margin: 0;
-        justify-content: space-between;
+        &__related_items {
+            margin: 0;
+            justify-content: space-between;
+        }
     }
 }
 
@@ -124,53 +118,50 @@
         flex-direction: column;       
         box-sizing: border-box;
         align-items: center;
-        & img {
+        &-image {
             width: 400px;
             height: 400px;
         }
+        &__related_items {
+            margin: 0;
+            justify-content: space-between;
+        }
     }
-
-    .product__related_items {
-        margin: 0;
-        justify-content: space-between;
-    }
-
 }
 
 @media (max-width: 800px) {
     .product {
-        & img {
+        &-image {
             width: 327px;
             height: 327px;
             margin: 0 24px;
         }
-    }
-    .product__info_buttons {
-        flex-direction: column;
-        & button {
-            width: 327px;
-            height: 53px;
-            margin: 0 auto 100px;
+        &__info {
+            &_buttons {
+                flex-direction: column;
+                & button {
+                    width: 327px;
+                    height: 53px;
+                    margin: 0 auto 15px;
+                }
+            }
+            &_colors {
+                &-div {
+                    width: 30px;
+                }
+            }
+            &_description {
+                margin-bottom: 16px;
+            }
+            &_price {
+                margin-bottom: 30px;
+            }
         }
-        & button:first-child {
-            margin: 0 auto 15px;
+        &__related {
+            &_title {
+                margin-bottom: 23px;
+                margin-left: 24px;
+            }
         }
-    }
-    .product__related_title {
-        margin-bottom: 23px;
-    }
-    .product__info_colors {
-        & div {
-            width: 30px;
-        }
-    }
-    .product__info_description {
-        margin-bottom: 16px;
-    }
-    .product__info_price {
-        margin-bottom: 30px;
-    }
-    .product__related_title {
-        margin-left: 24px;
     }
 }

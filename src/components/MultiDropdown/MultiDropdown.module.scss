@@ -1,5 +1,4 @@
-@import '@styles/colors.scss';
-@import '@styles/typography.scss';
+@import '@styles/mixins.scss';
 .button {
     @include typo-parapgraph-normal;
     box-sizing: border-box;
@@ -12,14 +11,12 @@
     margin-left: 29px;
     margin-right: 2px;
     margin-bottom: 10px;
-}
-
-.button:hover {
-    cursor: pointer;
-}
-
-.button__focus {
-    border: 1px solid $bg-color-primary;
+    &:hover {
+        cursor: pointer;
+    }
+    &_focus {
+        border: 1px solid $bg-color-primary;
+    }
 }
 
 .dropdown__option {
@@ -30,10 +27,9 @@
     background-color: $bg-color-white;
     vertical-align: middle;
     padding-top: 13px;
-}
-
-.dropdown__current_option {
-    color: $bg-color-primary;
+    &-current {
+        color: $bg-color-primary;
+    }
 }
 
 @media (max-width: 1000px) {

@@ -1,5 +1,4 @@
-@import '@styles/colors.scss';
-@import '@styles/typography.scss';
+@import '@styles/mixins.scss';
 .button {
   @include typo-parapgraph-bold;
   position: relative;
@@ -10,7 +9,7 @@
   justify-content: space-evenly;
   color: $font-color-white;
   align-items: center;
-  &:hover{
+  &:hover {
     cursor: pointer;
   }
   &_disabled {

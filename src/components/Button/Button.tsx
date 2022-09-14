@@ -21,7 +21,7 @@ const Button: React.FC<ButtonProps> = ({
   children,
   className,
   disabled,
-  ...args
+  ...props
 }) => {
   const colour = `button_color-${color}`;
   const buttonClass = cn(
@@ -31,11 +31,11 @@ const Button: React.FC<ButtonProps> = ({
     buttonStyles[colour]
   );
   return !loading ? (
-    <button className={buttonClass} {...args} disabled={disabled}>
+    <button className={buttonClass} {...props} disabled={disabled}>
       {children}
     </button>
   ) : (
-    <button className={buttonClass} disabled={disabled} {...args}>
+    <button className={buttonClass} disabled={disabled} {...props}>
       <Loader />
       {children}
     </button>

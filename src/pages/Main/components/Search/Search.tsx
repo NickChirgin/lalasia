@@ -13,16 +13,13 @@ type SearchProps = {
   count: number;
   store: MainPageStore;
 };
-// {
-//   store.getProductsWithFilter(searchParams.get('search'));
-// }
 
 const Search: React.FC<SearchProps> = ({ count, store }) => {
   const [searchParams, setSearchParams] = useSearchParams();
   useEffect(() => {
-    store.getCategories();
+    store.fetchCategories();
   }, [store]);
-  const clickHandler = async (e: any) => {
+  const clickHandler = (e: any) => {
     setSearchParams({
       ...searchParams,
       search: e.target.previousSibling?.value,

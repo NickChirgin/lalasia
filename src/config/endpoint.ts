@@ -5,6 +5,6 @@ export const API_ENDPOINTS = {
   CATEGORY: '/products/category/',
 };
 
-export const relatedItemsLimit = 3;
+export const RELATED_ITEMS_LIMIT = 3;
 
-export const itemsPerPage = 6;
+export const ITEMS_PER_PAGE = 6;

@@ -1,5 +1,5 @@
 import { api } from '@config/api';
-import { API_ENDPOINTS, relatedItemsLimit } from '@config/endpoint';
+import { API_ENDPOINTS, RELATED_ITEMS_LIMIT } from "@config/endpoint";
 import { CardsModel, normalizeCards } from '@store/models/product/cards';
 import { ILocalStore } from '@utils/useLocalStore';
 import {
@@ -25,7 +25,7 @@ export default class ProductStore implements ILocalStore {
       product: computed,
       relatedProducts: computed,
       loading: computed,
-      getProducts: action,
+      fetchProducts: action.bound,
     });
   }
 
@@ -41,13 +41,13 @@ export default class ProductStore implements ILocalStore {
     return this._relatedProducts;
   }
 
-  async getProducts(id: string | number | undefined): Promise<void> {
+  async fetchProducts(id: string | number | undefined): Promise<void> {
     this._isLoading = true;
     this._product = null;
     this._relatedProducts = [];
     const product = await api.get(`${API_ENDPOINTS.PRODUCT}${id}`);
     const relatedItems = await api.get(
-      `${API_ENDPOINTS.CATEGORY}${product.data.category}?limit=${relatedItemsLimit}`
+      `${API_ENDPOINTS.CATEGORY}${product.data.category}?limit=${RELATED_ITEMS_LIMIT}`
     );
     runInAction(() => {
       try {

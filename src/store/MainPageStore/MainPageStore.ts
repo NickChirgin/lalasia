@@ -1,6 +1,6 @@
 import { api } from "@config/api";
 import { ILocalStore } from "@utils/useLocalStore";
-import { API_ENDPOINTS, itemsPerPage } from "@config/endpoint";
+import { API_ENDPOINTS, ITEMS_PER_PAGE } from "@config/endpoint";
 import { CardsModel } from "@store/models/product/cards";
 import rootStore from "@store/RootStore";
 import range from "@utils/range";
@@ -39,7 +39,7 @@ export default class MainPageStore implements ILocalStore {
       paginatedProducts: computed,
       filteredProducts: computed,
       setCategories: action.bound,
-      getCategories: action.bound,
+      fetchCategories: action.bound,
       setProducts: action.bound,
     });
   }
@@ -68,7 +68,7 @@ export default class MainPageStore implements ILocalStore {
     this._choosenCategories = cats;
   }
 
-  async getCategories(): Promise<void> {
+  async fetchCategories(): Promise<void> {
     this._categories = [];
     const categories = await api.get(API_ENDPOINTS.CATEGORIES);
     runInAction(() => (this._categories = categories.data));
@@ -83,7 +83,7 @@ export default class MainPageStore implements ILocalStore {
         const products = await api.get(`${API_ENDPOINTS.CATEGORY}${cat}`);
         runInAction(() => {
           this._products.push(...products.data);
-          this._pagesAmount = range(1, this._products.length, itemsPerPage);
+          this._pagesAmount = range(1, this._products.length, ITEMS_PER_PAGE);
         });
       });
     }
@@ -91,7 +91,7 @@ export default class MainPageStore implements ILocalStore {
       const products = await api.get(API_ENDPOINTS.PRODUCTS);
       runInAction(() => {
         this._products = products.data;
-        this._pagesAmount = range(1, this._products.length, itemsPerPage);
+        this._pagesAmount = range(1, this._products.length, ITEMS_PER_PAGE);
       });
     }
   }
@@ -107,19 +107,18 @@ export default class MainPageStore implements ILocalStore {
   }
 
   get paginatedProducts() {
-    let page = rootStore.query.getParam("?page")
-      ? rootStore.query.getParam("?page")
-      : rootStore.query.getParam("page");
-    if (!page) {
-      page = "1";
-    }
+    const page = rootStore.query.getParam('?page') || rootStore.query.getParam('page') || '1';
     runInAction(() => {
-      this._pagesAmount = range(1, this.filteredProducts.length, itemsPerPage);
+      this._pagesAmount = range(
+        1,
+        this.filteredProducts.length,
+        ITEMS_PER_PAGE
+      );
       this._isLoading = false;
     });
     return this.filteredProducts.slice(
-      (Number(page) - 1) * itemsPerPage,
-      Number(page) * itemsPerPage
+      (Number(page) - 1) * ITEMS_PER_PAGE,
+      Number(page) * ITEMS_PER_PAGE
     );
   }
 

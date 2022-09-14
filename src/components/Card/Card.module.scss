@@ -1,5 +1,4 @@
-@import '@styles/colors.scss';
-@import '@styles/typography.scss';
+@import '@styles/mixins.scss';
 .card {
     box-sizing: border-box;
     margin: 30px;
@@ -12,23 +11,23 @@
     }
     &__paragraph {
         color: $font-color-grey;
-    }
-    &__paragraph:nth-of-type(1){
-        @include typo-parapgraph-bold;
-        margin-bottom: 14px;
-        color: $font-color-grey;
-        margin: 26px 0 14px;
-    }
-    &__paragraph:nth-of-type(2) {
-        @include typo-parapgraph-normal;
-        margin-bottom: 18px;
-        margin-top: 6px;
-        color: $font-color-grey;
-    }
-    &__paragraph:last-child{
-        @include typo-title-small;
-        color: $font-color-black;
-        padding-bottom: 30px;
+        &-description {
+            @include typo-parapgraph-normal;
+            margin-bottom: 14px;
+            color: $font-color-grey;
+            margin: 26px 0 14px;
+        }
+        &-category {
+            @include typo-parapgraph-bold;
+            margin-bottom: 18px;
+            margin-top: 6px;
+            color: $font-color-grey;
+        }
+        &-price {
+            @include typo-title-small;
+            color: $font-color-black;
+            padding-bottom: 30px;
+        }
     }
     &__title {
         text-decoration: none;
@@ -38,7 +37,6 @@
         margin-bottom: 6px;
     }
 }
-
 @media (max-width: 1885px) {
     .card {
         box-sizing: border-box;
@@ -60,6 +58,29 @@
             box-sizing: border-box;
             width: 280px;
             height: 254.5px;
+        }
+        &__paragraph {
+            color: $font-color-grey;
+            &-description {
+                @include typo-parapgraph-normal;
+                color: $font-color-grey;
+                margin: 4px 0 12px;
+            }
+            &-category {
+                @include typo-parapgraph-bold;
+                margin-bottom: 6px;
+                margin-top: 14px;
+                color: $font-color-grey;
+            }
+            &-price {
+                @include typo-title-small;
+                color: $font-color-black;
+                padding-bottom: 30px;
+            }
+        }
+        &__title {
+            margin-top: 6px;
+            margin-bottom: 4px;
         }
     }
 }

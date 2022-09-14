@@ -29,15 +29,15 @@ const Card: React.FC<CardProps> = ({
       <Link to={routes.product.createPath(id)}>
         <img src={image} alt={cardStyle.card__image} className={cardStyle.card__image} />
       </Link>
-      <p className={cardStyle.card__paragraph}>{category}</p>
+      <p className={cardStyle['card__paragraph-category']}>{category}</p>
       <Link
         to={routes.product.createPath(id)}
-        className={cardStyle.card__title}
+        className={cardStyle['card__title']}
       >
         {title.slice(0, 20)}
       </Link>
-      <p className={cardStyle.card__paragraph}>{description.slice(0, 30)}</p>
-      <p className={cardStyle.card__paragraph}>{`$${price}`}</p>
+      <p className={cardStyle['card__paragraph-description']}>{description.slice(0, 30)}</p>
+      <p className={cardStyle['card__paragraph-price']}>{`$${price}`}</p>
     </div>
   );
 };

@@ -1,3 +1,5 @@
+// Функция, которая возвращает массив страниц.
+
 export default function range(
   start: number,
   count: number,

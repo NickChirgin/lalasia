@@ -27,17 +27,16 @@ const MultiDropdown: React.FC<MultiDropdownProps> = ({
   ...rest
 }) => {
   const [isShown, setIsShown] = useState(false);
-  let cnButton = cn(
+  const cnButton = cn(
     mdStyles.button,
     disabled && mdStyles.button__disabled,
-    isShown && mdStyles.button__focus
+    isShown && mdStyles.button_focus
   );
   const clickHandler = () => setIsShown((prev) => !prev);
-  const btnText = text;
   return (
     <div>
       <div {...rest} className={cnButton} onClick={clickHandler}>
-        {btnText}
+        {text}
       </div>
       {!disabled &&
         isShown &&
@@ -45,7 +44,7 @@ const MultiDropdown: React.FC<MultiDropdownProps> = ({
           <div
             key={option}
             className={`${mdStyles.dropdown__option} ${
-              text.includes(option) && mdStyles.dropdown__current_option
+              text.includes(option) && mdStyles['dropdown__option-current']
             }`}
             onClick={() => onChange(option)}
           >

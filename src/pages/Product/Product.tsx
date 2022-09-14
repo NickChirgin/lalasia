@@ -17,7 +17,7 @@ const Product: React.FC = () => {
   const productStore = useLocalStore(() => new ProductStore());
 
   useEffect(() => {
-    productStore.getProducts(id);
+    productStore.fetchProducts(id);
   }, [id, productStore]);
   return (
     <div className={productStyle.product_page}>
@@ -26,6 +26,7 @@ const Product: React.FC = () => {
         <img
           src={productStore.product?.image}
           alt={productStore.product?.title}
+          className={productStyle['product-image']}
         />
         <div className={productStyle.product__info}>
           <p className={productStyle.product__info_title}>
@@ -36,10 +37,10 @@ const Product: React.FC = () => {
           </p>
           <p className={productStyle.product__info_color}>Color</p>
           <div className={productStyle.product__info_colors}>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
+            <div className={productStyle['product__info_colors-div'] + " " + productStyle.black}></div>
+            <div className={productStyle['product__info_colors-div'] + " " + productStyle.green}></div>
+            <div className={productStyle['product__info_colors-div'] + " " + productStyle.orange}></div>
+            <div className={productStyle['product__info_colors-div'] + " " + productStyle.grey}></div>
           </div>
           <p className={productStyle.product__info_description}>
             {productStore.product?.description}
@@ -48,7 +49,7 @@ const Product: React.FC = () => {
             {'$' + productStore.product?.price}
           </p>
           <div className={productStyle.product__info_buttons}>
-            <Button loading={productStore.loading} children="Buy Now" />
+            <Button loading={productStore.loading} children="Buy Now" className={productStyle['product__info_buttons-first']}/>
             <Button
               loading={productStore.loading}
               children="Add to Chart"

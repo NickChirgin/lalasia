@@ -9,10 +9,3 @@ declare module '*.svg' {
     
     export default content;
 }
-
-declare global {
-    interface Window { 
-        $RefreshReg$: any,
-        $RefreshSig$: any,
-     }
-}
