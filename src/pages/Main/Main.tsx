@@ -41,11 +41,11 @@ function Main() {
       />
       <CardList products={mainPageStore.paginatedProducts}></CardList>
       <div className={mainStyle.pagination}>
-        <img
+        {/* <img
           className={mainStyle.pagination__image}
           src={leftarrow}
           alt="left arrow"
-        />
+        /> */}
         <div className={mainStyle.pagination__wrapper}>
           {mainPageStore.pagesAmount.map((page) => (
             <div
@@ -60,11 +60,11 @@ function Main() {
             </div>
           ))}
         </div>
-        <img
+        {/* <img
           className={mainStyle.pagination__image}
           src={rightarrow}
           alt="right arrow"
-        />
+        /> */}
       </div>
     </>
   );

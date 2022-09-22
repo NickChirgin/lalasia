@@ -19,6 +19,10 @@
     }
 }
 
+.menu {
+    position: absolute;
+}
+
 .dropdown__option {
     width: 190px;
     height: 42px;
@@ -27,6 +31,7 @@
     background-color: $bg-color-white;
     vertical-align: middle;
     padding-top: 13px;
+    border: 1px solid $bg-color-primary;
     &-current {
         color: $bg-color-primary;
     }

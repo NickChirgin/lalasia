@@ -49,11 +49,12 @@ const Product: React.FC = () => {
             {'$' + productStore.product?.price}
           </p>
           <div className={productStyle.product__info_buttons}>
-            <Button loading={productStore.loading} children="Buy Now" className={productStyle['product__info_buttons-first']}/>
+            <Button loading={productStore.loading} children="Buy Now" className={productStyle['product__info_buttons-first']} disabled={productStore.loading}/>
             <Button
               loading={productStore.loading}
               children="Add to Chart"
               color={ButtonColor.secondary}
+              disabled={productStore.loading}
             />
           </div>
         </div>

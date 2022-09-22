@@ -53,6 +53,7 @@ const Search: React.FC<SearchProps> = ({ count, store }) => {
             className={searchStyle.search__product_button}
             onClick={clickHandler}
             loading={store.loading}
+            disabled={store.loading}
           />
         </div>
         <MultiDropdown

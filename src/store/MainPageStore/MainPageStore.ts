@@ -28,7 +28,7 @@ export default class MainPageStore implements ILocalStore {
   private _choosenCategories: string[] = [];
   constructor() {
     makeObservable<MainPageStore, PrivateFields>(this, {
-      _isLoading: observable,
+      _isLoading: observable.ref,
       _categories: observable.ref,
       _products: observable,
       _pagesAmount: observable.ref,
@@ -108,14 +108,12 @@ export default class MainPageStore implements ILocalStore {
 
   get paginatedProducts() {
     const page = rootStore.query.getParam('?page') || rootStore.query.getParam('page') || '1';
-    runInAction(() => {
-      this._pagesAmount = range(
+    this._pagesAmount = range(
         1,
         this.filteredProducts.length,
         ITEMS_PER_PAGE
       );
-      this._isLoading = false;
-    });
+    this._isLoading = false;
     return this.filteredProducts.slice(
       (Number(page) - 1) * ITEMS_PER_PAGE,
       Number(page) * ITEMS_PER_PAGE

@@ -38,6 +38,7 @@ const MultiDropdown: React.FC<MultiDropdownProps> = ({
       <div {...rest} className={cnButton} onClick={clickHandler}>
         {text}
       </div>
+      <div className={mdStyles.menu} >
       {!disabled &&
         isShown &&
         options.map((option) => (
@@ -51,6 +52,7 @@ const MultiDropdown: React.FC<MultiDropdownProps> = ({
             {option}
           </div>
         ))}
+      </div>
     </div>
   );
 };
