@@ -1,0 +1,167 @@
+@import '@styles/mixins.scss';
+.product {
+    display: flex;
+    margin: 100px 100px 50px;
+    background-color: $bg-color-white;
+    &-image {
+        width: 600px;
+        height: 600px;
+        margin-right: 50px;
+    }
+    &_page {
+        background-color: $bg-color-white;
+        box-sizing: border-box;
+    }
+    &__related {
+        &_title {
+            background-color: $bg-color-white;
+            margin-left: 100px;
+            font-style: normal;
+            @include typo-title-medium;
+            font-size: 32px;
+            color: $font-color-black;
+        }
+        &_items {
+            margin-left: 50px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            background-color: $bg-color-white;
+        }
+    }
+    &__info {
+        &_title {
+            font-style: normal;
+            @include typo-title-medium;
+            color: $font-color-black;
+            margin-bottom: 0;
+        }
+        &_subtitle {
+            font-style: normal;
+            @include typo-parapgraph-normal;
+            color: $font-color-grey;
+            margin-top: 0;
+            margin-bottom: 30px;
+        }
+        &_color {
+            font-style: normal;
+            @include typo-parapgraph-bold;
+            color: $font-color-black;
+            margin-bottom: 20px;
+        }
+        &_description {
+            color: $font-color-grey;
+            margin-bottom: 30px;
+        }
+        &_colors {
+            display: flex;
+            margin-bottom: 20px;
+            &-div {
+                display: inline-block;
+                width: 50px;
+                aspect-ratio: 1/1;
+            }
+        }
+        &_price {
+            font-style: normal;
+            @include typo-title-medium;
+            color: $font-color-black;
+            margin-bottom: 50px;
+        }
+        &_buttons {
+            display: flex;
+            & button {
+                width: 285px;
+                height: 58px;
+            }
+            &-first {
+                margin-right: 20px;
+            }
+        }
+    }
+}
+.black {
+    background: $font-color-black;
+}
+
+.green {
+    background: #314443;
+}
+.orange {
+    background: #C5A26E;
+}
+.grey {
+    background: #D8DBE0;
+}
+
+@media (max-width: 1600px) {
+    .product {
+        display: flex;
+        margin: 50px 24px 30px;
+        background-color: $bg-color-white;
+        box-sizing: border-box;
+        &-image {
+            width: 500px;
+            height: 500px;
+            margin-right: 50px;
+        }
+        &__related_items {
+            margin: 0;
+            justify-content: space-between;
+        }
+    }
+}
+
+@media (max-width: 1240px) {
+    .product {
+        display: flex;
+        flex-direction: column;       
+        box-sizing: border-box;
+        align-items: center;
+        &-image {
+            width: 400px;
+            height: 400px;
+        }
+        &__related_items {
+            margin: 0;
+            justify-content: space-between;
+        }
+    }
+}
+
+@media (max-width: 800px) {
+    .product {
+        &-image {
+            width: 327px;
+            height: 327px;
+            margin: 0 24px;
+        }
+        &__info {
+            &_buttons {
+                flex-direction: column;
+                & button {
+                    width: 327px;
+                    height: 53px;
+                    margin: 0 auto 15px;
+                }
+            }
+            &_colors {
+                &-div {
+                    width: 30px;
+                }
+            }
+            &_description {
+                margin-bottom: 16px;
+            }
+            &_price {
+                margin-bottom: 30px;
+            }
+        }
+        &__related {
+            &_title {
+                margin-bottom: 23px;
+                margin-left: 24px;
+            }
+        }
+    }
+}

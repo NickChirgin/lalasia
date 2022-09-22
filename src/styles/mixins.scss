@@ -1,0 +1,62 @@
+$bg-color-primary: #518581;
+$bg-color-secondary: #d9d9d9;
+$bg-color-white: #FFF;
+
+$border-color-white: #F3F3F3;
+
+$font-color-black: #151411;
+$font-color-grey: #AFADB5;
+$font-color-white: #FFF;
+
+@mixin typo-parapgraph-normal {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 1.8;
+
+    @media (max-width: 1000px) {
+        font-size: 12px;
+    }
+}
+
+@mixin typo-parapgraph-bold {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1.3;
+
+    @media (max-width: 1000px) {
+        font-size: 12px;
+    }
+}
+
+@mixin typo-title-small {
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 1.3;
+    letter-spacing: 0.01em;
+
+    @media (max-width: 1000px) {
+        font-size: 14px;
+    }
+}
+
+@mixin typo-title-medium {
+    font-weight: 700;
+    font-size: 44px;
+    line-height: 1.3;
+    letter-spacing: 0.01em;
+
+    @media (max-width: 1000px) {
+        font-size: 18px;
+    }
+}
+
+@mixin typo-title-big {
+    font-weight: 700;
+    font-size: 64px;
+    line-height: 1.3;
+    letter-spacing: 0.01em;
+
+    @media (max-width: 1000px) {
+        font-size: 26px;
+    }
+}
